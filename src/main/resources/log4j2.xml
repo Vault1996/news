@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="FATAL" packages="com.epam.esm.task1">
+	<appenders>
+		<RollingFile name="RollingFile" fileName="log/log.txt"
+			filePattern="log/log-%d{yyyy-MM-dd}-%i.txt">
+			<PatternLayout>
+				<pattern>%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="5 KB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</appenders>
+	<loggers>
+		<root level="info">
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="RollingFile" />
+		</root>
+	</loggers>
+</configuration>
